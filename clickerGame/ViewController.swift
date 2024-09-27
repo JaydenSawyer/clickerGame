@@ -4,8 +4,9 @@
 //
 //  Created by JAYDEN SAWYER on 9/25/24.
 //
-class points{
-    static var points = 0
+class AppData{
+    static var count2 = 0
+    static var click = 1
 }
 
 import UIKit
@@ -20,8 +21,20 @@ class ViewController: UIViewController {
 
 
     @IBAction func clickAction(_ sender: UIButton) {
-        count += 1
-        coinLabel.text = "Coins: \(count)"
+        AppData.count2 += AppData.click
+        coinLabel.text = "Coins: \(AppData.count2)"
+        
+        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        //let nvc = segue.destination as! ViewController2
+        //nvc.coins = count
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        coinLabel.text = "Coins: \(AppData.count2)"
+    }
+    
 }
 

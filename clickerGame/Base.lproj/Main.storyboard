@@ -64,10 +64,20 @@
                                     <action selector="ResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YxU-qa-Y2w"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjS-NO-DId">
+                                <rect key="frame" x="296" y="103" width="81" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Results"/>
+                                <connections>
+                                    <segue destination="uxy-3K-zb8" kind="show" id="GuM-FK-ijD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Base Game" id="cN7-ub-TFl">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="3LQ-r4-EYO">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="PFv-EG-z3C">
@@ -81,6 +91,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coinLabel" destination="VgV-8w-4pr" id="GrI-rR-l5K"/>
                         <outlet property="nameField" destination="rbi-5E-Cao" id="svj-ik-J5y"/>
@@ -181,13 +192,39 @@
                     <view key="view" contentMode="scaleToFill" id="shx-CB-Op6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6J0-tA-8M4">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="WBa-Sj-olE">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WBa-Sj-olE" id="A3H-Av-GoT">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="99E-Jd-AA2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6J0-tA-8M4" firstAttribute="trailing" secondItem="99E-Jd-AA2" secondAttribute="trailing" id="58B-Ry-ahG"/>
+                            <constraint firstItem="6J0-tA-8M4" firstAttribute="top" secondItem="99E-Jd-AA2" secondAttribute="top" id="Bwu-GW-ck0"/>
+                            <constraint firstItem="6J0-tA-8M4" firstAttribute="leading" secondItem="99E-Jd-AA2" secondAttribute="leading" id="Wjs-TY-cBd"/>
+                            <constraint firstItem="6J0-tA-8M4" firstAttribute="bottom" secondItem="99E-Jd-AA2" secondAttribute="bottom" id="gSt-np-PfQ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hH3-Bn-OPK"/>
+                    <connections>
+                        <outlet property="tableView" destination="6J0-tA-8M4" id="qKP-f2-Q7V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDt-Gk-SRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534" y="3"/>
+            <point key="canvasLocation" x="2533.5877862595421" y="2.8169014084507045"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GaK-VV-5H0">

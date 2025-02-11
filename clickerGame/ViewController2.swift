@@ -2,7 +2,7 @@
 //  ViewController2.swift
 //  clickerGame
 //
-//  Created by JAYDEN SAWYER on 9/26/24.
+//  Created by JAYDEN SAWYER on 1/10/25.
 //
 
 import UIKit

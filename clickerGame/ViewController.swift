@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  clickerGame
 //
-//  Created by JAYDEN SAWYER on 9/25/24.
+//  Created by JAYDEN SAWYER on 2/10/25.
 //
 class AppData{
     static var count2 = 0
@@ -12,16 +12,20 @@ class AppData{
 }
 
 import UIKit
+import FirebaseCore
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
     var defaults = UserDefaults.standard
     var count = 0
+    var ref: DatabaseReference!
     @IBOutlet weak var coinLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Reading from phone
+        ref = Database.database().reference()
         AppData.count2 = defaults.integer(forKey: "EndScore")
         AppData.click = defaults.integer(forKey: "Up")
          AppData.name = defaults.string(forKey: "Name") ?? ""
@@ -54,6 +58,7 @@ class ViewController: UIViewController {
             AppData.name = name
             defaults.set(AppData.name, forKey: "Name")
             nameLabel.text = AppData.name
+           
         }
     }
  
@@ -65,5 +70,11 @@ class ViewController: UIViewController {
         nameLabel.text = ""
         coinLabel.text = "Coins: \(AppData.count2)"
     }
+    @IBAction func LeaderBoardButton(_ sender: UIButton) {
+       var names = nameField.text!
+        ref.child("players").childByAutoId().setValue(names)
+        
+    }
+    
 }
 

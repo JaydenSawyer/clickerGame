@@ -4,6 +4,18 @@
 //
 //  Created by JAYDEN SAWYER on 2/10/25.
 //
+
+class Players{
+    var score = AppData.count2
+    var names = ""
+    var ref = Database.database().reference()
+
+    func saveToFirebase(){
+        let dict = ["name": names, "score":score] as [String: Any]
+        ref.child("Leaderboard").childByAutoId().setValue(dict)
+
+    }
+}
 class AppData{
     static var count2 = 0
     static var click = 1
@@ -16,6 +28,7 @@ import FirebaseCore
 import FirebaseDatabase
 
 class ViewController: UIViewController {
+    var Players: [String] = []
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
     var defaults = UserDefaults.standard
@@ -24,6 +37,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var coinLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Reading from phone
         ref = Database.database().reference()
         AppData.count2 = defaults.integer(forKey: "EndScore")
@@ -71,7 +85,7 @@ class ViewController: UIViewController {
         coinLabel.text = "Coins: \(AppData.count2)"
     }
     @IBAction func LeaderBoardButton(_ sender: UIButton) {
-       var names = nameField.text!
+        let names = nameField.text!
         ref.child("players").childByAutoId().setValue(names)
         
     }
